@@ -1,2 +1,2 @@
 # homesell
-this plugin about buy and sell in home 
+this template for buy and sell home
