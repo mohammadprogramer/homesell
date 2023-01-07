@@ -1,5 +1,63 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+
+
+
+function leftsides(){
+$args = array(
+'id'            => 'fooer',
+'class'         => 'footer',
+'name'          => 'آخرین املاک',
+'description'   => 'ابزارک ستون کناری را در این بخش قرار دهید.',
+'before_title'  => '<h4 class="side_titr">',
+'after_title'   => '</h4><div class="clear"></div><div class="side_boxs">',
+'before_widget' => '<aside class="widgets_list widgets_wp">',
+'after_widget'  => '<div class="clear"></div></div><div class="clear"></div></aside>',
+); register_sidebar($args);}
+add_action('widgets_init','leftsides');
+// iranthemes.com - rkianoosh.ir
+
+
+function footersides(){
+$args = array(
+'id'            => 'fooer2',
+'class'         => 'footer2',
+'name'          => 'لینک های سریع در فوتر',
+'description'   => 'ابزارک ستون کناری را در این بخش قرار دهید.',
+'before_title'  => '<h4 class="side_titr">',
+'after_title'   => '</h4><div class="clear"></div><div class="side_boxs">',
+'before_widget' => '<aside class="widgets_list widgets_wp">',
+'after_widget'  => '<div class="clear"></div></div><div class="clear"></div></aside>',
+); register_sidebar($args);}
+add_action('widgets_init','footersides');
+
+function copywrite(){
+$args = array(
+'id'            => 'fooer3',
+'class'         => 'footer3',
+'name'          => 'متن کپی رایت ',
+'description'   => 'ابزارک ستون کناری را در این بخش قرار دهید.',
+'before_title'  => '<h4 class="side_titr">',
+'after_title'   => '</h4><div class="clear"></div><div class="side_boxs">',
+'before_widget' => '<aside class="widgets_list widgets_wp">',
+'after_widget'  => '<div class="clear"></div></div><div class="clear"></div></aside>',
+); register_sidebar($args);}
+add_action('widgets_init','copywrite');
+
+
+function example_theme_support() {
+    remove_theme_support( 'widgets-block-editor' );
+}
+add_action( 'after_setup_theme', 'example_theme_support' );
+
+
+
+
+
 if (!current_user_can( ‘manage_options’ ))
 {
 add_filter(‘show_admin_bar’, ‘__return_false’);
@@ -19,7 +77,6 @@ include_once( 'inc/theme-metabox.php' );
 /**
 require_once(get_template_directory()."/option-tree/ot-loader.php");
 
-this item for setting pannel
 */
 
 
@@ -71,7 +128,7 @@ if ( ! function_exists( 'mytheme_register_nav_menu' ) ) {
 
 	function mytheme_register_nav_menu(){
 		register_nav_menus( array(
-	    	'primary_menu' => __( 'lمنوی بالا', 'text_domain' ),
+	    	'main-menu' => __( 'lمنوی بالا', 'text_domain' ),
 	    	'footer_menu'  => __( 'منوی پایین', 'text_domain' ),
 		) );
 	}
