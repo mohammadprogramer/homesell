@@ -49,6 +49,22 @@ $args = array(
 add_action('widgets_init','copywrite');
 
 
+function mapmap(){
+$args = array(
+'id'            => 'map',
+'class'         => 'map',
+'name'          => 'کد نقشه گوگل',
+'description'   => 'ابزارک ستون کناری را در این بخش قرار دهید.',
+'before_title'  => '<h4 class="side_titr">',
+'after_title'   => '</h4><div class="clear"></div><div class="side_boxs">',
+'before_widget' => '<aside class="widgets_list widgets_wp">',
+'after_widget'  => '<div class="clear"></div></div><div class="clear"></div></aside>',
+); register_sidebar($args);}
+add_action('widgets_init','mapmap');
+
+
+
+
 function example_theme_support() {
     remove_theme_support( 'widgets-block-editor' );
 }
@@ -78,6 +94,21 @@ include_once( 'inc/theme-metabox.php' );
 require_once(get_template_directory()."/option-tree/ot-loader.php");
 
 */
+
+
+
+function reg_cat() {
+            register_taxonomy( 'categories', array('amlak'), array(
+        'hierarchical' => true, 
+        'label' => 'دسته ها', 
+        'singular_label' => 'Category', 
+        'rewrite' => array( 'slug' => 'categories', 'with_front'=> false )
+        )
+    );
+
+    register_taxonomy_for_object_type( 'categories', 'amlak' );
+}
+add_action('init', 'reg_cat');
 
 
 
